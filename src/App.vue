@@ -1,16 +1,22 @@
 <script setup>
 import { defineComponent } from "vue";
+
+import "tinymce/tinymce";
+
+import "./styles/themes/sliver/theme";
+import "./styles/icons/default/default/icons";
+import "./styles/skins/ui/oxide/content.min.css";
+import "./styles/skins/ui/oxide/skin.min.css";
+
+import "tinymce/plugins/media";
+
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import Editor from "@tinymce/tinymce-vue";
+
 const config = {
-  plugins: [
-    "advlist autolink lists link image charmap print preview anchor",
-    "searchreplace visualblocks code fullscreen",
-    "insertdatetime media table paste",
-  ],
-  toolbar:
-    "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
+  plugins: ["media"],
+  toolbar: "media",
   height: 400,
 };
 </script>
