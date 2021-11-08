@@ -1,7 +1,7 @@
 <script setup>
-import { defineComponent } from "vue";
+import { onMounted, defineComponent } from "vue";
 
-import "tinymce/tinymce";
+import tinymce from "tinymce/tinymce";
 
 import "./styles/themes/sliver/theme";
 import "./styles/icons/default/default/icons";
@@ -19,10 +19,19 @@ const config = {
   toolbar: "media",
   height: 400,
 };
+
+onMounted(() => {
+  tinymce.init({
+    selector: "textarea#hoge",
+    plugins: ["media"],
+    toolbar: "media",
+  });
+});
 </script>
 
 <template>
   <editor :init="config" />
+  <textarea id="hoge"></textarea>
 </template>
 
 <style>
